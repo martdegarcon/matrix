@@ -1,4 +1,0 @@
-git add .
-git commit -m "pill morph + flower"
-git push
-git push amvera main:master
