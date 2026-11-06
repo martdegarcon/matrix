@@ -652,6 +652,24 @@ svg.pxt{display:inline-block;margin-left:.35em;vertical-align:baseline;shape-ren
 .vch{display:block;margin:0;grid-template-columns:none}
 .vch li{padding:5px 12px}
 }
+
+.vp .vx{position:absolute;top:10px;right:10px;display:flex;gap:8px;z-index:3}
+.vp .vx button{width:34px;height:34px;border-radius:10px;border:1px solid rgba(255,255,255,.4);background:rgba(0,0,0,.35);color:#fff;display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(8px);transition:.2s}
+.vp .vx button:hover{background:var(--acc);color:#000;border-color:transparent}
+.vp .vx .vfs{display:none}
+@media (min-width:861px){
+.win.big{left:2vw!important;right:auto;top:2vh!important;width:96vw;max-width:none;height:96vh;max-height:96vh}
+.win.big .vp{grid-template-columns:minmax(0,2fr) minmax(380px,1fr)}
+.win.big .vch li{padding:5px 12px;font-size:12.5px}
+}
+@media (max-width:860px){.vp .vsz{display:none}}
+.vp.fsok .vx .vfs{display:grid}
+.vp:fullscreen{background:#0b0b0d;color:#fff;padding:24px;display:grid;grid-template-columns:minmax(0,2fr) minmax(380px,1fr);gap:20px;align-items:center;margin:0;width:100vw;height:100vh;box-sizing:border-box}
+.vp:fullscreen .vpv{margin:0;border-radius:14px}
+.vp:fullscreen .vch{max-height:calc(100vh - 48px);display:block;overflow:auto;border-color:rgba(255,255,255,.18);color:#fff}
+.vp:fullscreen .vch li{padding:5px 12px;font-size:12.5px}
+.vp:fullscreen .vch li.on{background:rgba(43,125,233,.28)}
+@media (max-width:860px){.vp:fullscreen{grid-template-columns:1fr;grid-template-rows:auto 1fr;align-content:center;padding:12px}.vp:fullscreen .vch{max-height:40vh}}
 </style>
 </head>
 <body>
@@ -797,6 +815,7 @@ svg.pxt{display:inline-block;margin-left:.35em;vertical-align:baseline;shape-ren
       <button class="vpb" type="button" aria-label="Смотреть"><span class="pbtn"><svg width="24" height="26" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></span></button>
       <div class="vh"><span>MATRIX / ГАЙД</span><span class="vt">00:00</span></div>
       <div class="vbar"><i></i></div>
+      <div class="vx"><button type="button" class="vsz" aria-label="Увеличить окно" title="Увеличить окно"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2H14v4.5M6.5 14H2V9.5M14 2L9 7M2 14l5-5"/></svg></button><button type="button" class="vfs" aria-label="На весь экран" title="На весь экран"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"/></svg></button></div>
     </div>
     <ol class="vch"><li data-t="0"><b>00:00</b><span>Кому подойдёт это видео и что ты получишь</span></li><li data-t="77"><b>01:17</b><span>Кто я</span></li><li data-t="162"><b>02:42</b><span>Детство и 70 рублей на автобус</span></li><li data-t="197"><b>03:17</b><span>Первый комп на все накопления</span></li><li data-t="277"><b>04:37</b><span>Решение менять жизнь самому</span></li><li data-t="296"><b>04:56</b><span>Что я заметил: зарабатывают те, кто умеет продавать</span></li><li data-t="394"><b>06:34</b><span>Превью для Татвола</span></li><li data-t="433"><b>07:13</b><span>Первые 100 тысяч в 16 лет и рост до 400 тысяч</span></li><li data-t="484"><b>08:04</b><span>Как всё устроено: навык, люди, продажи</span></li><li data-t="529"><b>08:49</b><span>Пять причин, почему тебе не отвечают</span></li><li data-t="538"><b>08:58</b><span>Причина 1: ты пишешь не тем</span></li><li data-t="658"><b>10:58</b><span>Причина 2: твоё сообщение как у всех</span></li><li data-t="806"><b>13:26</b><span>Причина 3: ответили и пропали</span></li><li data-t="830"><b>13:50</b><span>Общайся с клиентом как с другом</span></li><li data-t="862"><b>14:22</b><span>Фоллоу-апы: что писать, если молчат</span></li><li data-t="906"><b>15:06</b><span>Причина 4: ты продаёшь работу, а не результат</span></li><li data-t="926"><b>15:26</b><span>Четыре рычага ценности услуги</span></li><li data-t="970"><b>16:10</b><span>Причина 5: сомнения не сняты до цены</span></li><li data-t="1015"><b>16:55</b><span>Два пути: самому или по системе</span></li><li data-t="1070"><b>17:50</b><span>Кому подходит Matrix</span></li><li data-t="1125"><b>18:45</b><span>Что внутри Matrix</span></li><li data-t="1223"><b>20:23</b><span>Личный разбор</span></li><li data-t="1282"><b>21:22</b><span>Что делать дальше</span></li><li data-t="1289"><b>21:29</b><span>Финал</span></li></ol>
   </div>
@@ -1371,6 +1390,17 @@ addEventListener('keydown',e=>{if(e.key==='Escape'){const top=Object.entries(ope
     if(Math.abs(v.currentTime-v._t)>.6)v.currentTime=v._t},true);
   document.addEventListener('ratechange',e=>{const r=vp(e);if(r)e.target.playbackRate=1},true);
   document.addEventListener('keydown',e=>{if(vp(e)&&/^(Arrow|Home|End|PageUp|PageDown|Digit|Numpad|KeyJ|KeyL|KeyK| )/.test(e.code)&&e.target.tagName!=='BUTTON')e.preventDefault()},true);
+})();
+
+(function(){
+  const ok=!!(document.fullscreenEnabled&&Element.prototype.requestFullscreen);
+  if(ok)new MutationObserver(()=>document.querySelectorAll('.vp:not(.fsok)').forEach(r=>r.classList.add('fsok'))).observe(document.body,{childList:true,subtree:true});
+  document.addEventListener('click',e=>{
+    const b=e.target.closest&&e.target.closest('.vp .vx button');if(!b)return;
+    const r=b.closest('.vp');
+    if(b.classList.contains('vsz')){const w=r.closest('.win');if(w){const on=w.classList.toggle('big');b.setAttribute('aria-label',on?'Уменьшить окно':'Увеличить окно')}}
+    else if(b.classList.contains('vfs')){if(document.fullscreenElement)document.exitFullscreen();else r.requestFullscreen().catch(()=>{})}
+  });
 })();
 </script>
 </body>
