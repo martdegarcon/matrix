@@ -625,6 +625,26 @@ svg.pxt{display:inline-block;margin-left:.35em;vertical-align:baseline;shape-ren
   .lights button svg{stroke:rgba(14,18,22,.7)}
   body:has(.win)::after{background:rgba(14,18,22,.28)}
 }
+
+/* ---- locked guide player ---- */
+.vp .vpv{margin-bottom:14px;background:#0b0b0d}
+.vp video{width:100%;height:100%;object-fit:cover;display:block;filter:none;background:#0b0b0d}
+.vp .vpb{position:absolute;inset:0;display:grid;place-items:center;background:transparent;border:0;cursor:pointer;color:#fff}
+.vp .vpb .pbtn{width:84px;height:84px;border-radius:50%;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.45);display:grid;place-items:center;backdrop-filter:blur(8px);transition:.2s}
+.vp .vpb:hover .pbtn{background:var(--acc);color:#000;transform:scale(1.06)}
+.vp.playing .vpb .pbtn{opacity:0;transform:scale(.8)}
+.vp.playing .vpb:hover .pbtn{opacity:.9}
+.vp .vh{color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6);pointer-events:none;bottom:18px}
+.vp .vbar{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.22);pointer-events:none}
+.vp .vbar i{display:block;height:100%;width:0;background:var(--acc)}
+.vch{list-style:none;margin:0 0 20px;padding:0;max-height:230px;overflow:auto;border:1px solid var(--line,rgba(0,0,0,.12));border-radius:12px;pointer-events:none;user-select:none;-webkit-user-select:none}
+.vch li{display:flex;gap:14px;padding:9px 14px;font:500 13px/1.35 var(--mono);opacity:.42;transition:.2s}
+.vch li b{flex:none;font-weight:500;min-width:44px}
+.vch li.past{opacity:.7}
+.vch li.on{opacity:1;background:rgba(43,125,233,.1)}
+.vch li.on b{color:var(--acc)}
+.ico .thumb.wide video{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none}
+@media (max-width:860px){.vp .vpb .pbtn{width:64px;height:64px}.vch{max-height:190px}.vch li{font-size:12px;padding:8px 12px}}
 </style>
 </head>
 <body>
@@ -678,7 +698,7 @@ svg.pxt{display:inline-block;margin-left:.35em;vertical-align:baseline;shape-ren
     <span class="lbl">Кто такой Ролан</span>
   </button>
   <button class="ico wide in" style="--d:3;left:180px;top:90px" data-open="video">
-    <div class="thumb wide"><img src="https://simonprod.ru/intro-poster-wide.jpg?v=1" alt="">
+    <div class="thumb wide"><video src="guide.mp4#t=3" muted playsinline preload="metadata" tabindex="-1"></video>
       <div class="play"><svg width="14" height="16" viewBox="0 0 10 12" fill="#fff"><path d="M0 0l10 6-10 6z"/></svg></div></div>
     <span class="lbl">Смотреть видео</span>
   </button>
@@ -765,9 +785,13 @@ svg.pxt{display:inline-block;margin-left:.35em;vertical-align:baseline;shape-ren
 </template>
 
 <template id="w-video" data-title="player — Видео">
-  <div class="video"><img src="https://simonprod.ru/intro-poster-wide.jpg?v=1" alt="">
-    <a href="https://simonprod.ru/materials" target="_blank" rel="noopener" aria-label="Смотреть материал"><span class="pbtn"><svg width="24" height="26" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></span></a>
-    <div class="vh"><span>MATRIX / INTRO</span></div>
+  <div class="vp">
+    <div class="video vpv"><video src="guide.mp4" playsinline preload="metadata" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noplaybackrate noremoteplayback" oncontextmenu="return false"></video>
+      <button class="vpb" type="button" aria-label="Смотреть"><span class="pbtn"><svg width="24" height="26" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0l10 6-10 6z"/></svg></span></button>
+      <div class="vh"><span>MATRIX / ГАЙД</span><span class="vt">00:00</span></div>
+      <div class="vbar"><i></i></div>
+    </div>
+    <ol class="vch"><li data-t="0"><b>00:00</b><span>Кому подойдёт это видео и что ты получишь</span></li><li data-t="77"><b>01:17</b><span>Кто я</span></li><li data-t="162"><b>02:42</b><span>Детство и 70 рублей на автобус</span></li><li data-t="197"><b>03:17</b><span>Первый комп на все накопления</span></li><li data-t="277"><b>04:37</b><span>Решение менять жизнь самому</span></li><li data-t="296"><b>04:56</b><span>Что я заметил: зарабатывают те, кто умеет продавать</span></li><li data-t="394"><b>06:34</b><span>Превью для Татвола</span></li><li data-t="433"><b>07:13</b><span>Первые 100 тысяч в 16 лет и рост до 400 тысяч</span></li><li data-t="484"><b>08:04</b><span>Как всё устроено: навык, люди, продажи</span></li><li data-t="529"><b>08:49</b><span>Пять причин, почему тебе не отвечают</span></li><li data-t="538"><b>08:58</b><span>Причина 1: ты пишешь не тем</span></li><li data-t="658"><b>10:58</b><span>Причина 2: твоё сообщение как у всех</span></li><li data-t="806"><b>13:26</b><span>Причина 3: ответили и пропали</span></li><li data-t="830"><b>13:50</b><span>Общайся с клиентом как с другом</span></li><li data-t="862"><b>14:22</b><span>Фоллоу-апы: что писать, если молчат</span></li><li data-t="906"><b>15:06</b><span>Причина 4: ты продаёшь работу, а не результат</span></li><li data-t="926"><b>15:26</b><span>Четыре рычага ценности услуги</span></li><li data-t="970"><b>16:10</b><span>Причина 5: сомнения не сняты до цены</span></li><li data-t="1015"><b>16:55</b><span>Два пути: самому или по системе</span></li><li data-t="1070"><b>17:50</b><span>Кому подходит Matrix</span></li><li data-t="1125"><b>18:45</b><span>Что внутри Matrix</span></li><li data-t="1223"><b>20:23</b><span>Личный разбор</span></li><li data-t="1282"><b>21:22</b><span>Что делать дальше</span></li><li data-t="1289"><b>21:29</b><span>Финал</span></li></ol>
   </div>
   <h2>Посмотри, что стоит за моим успехом</h2>
   <p>В MATRIX весь опыт, который принёс мне $8 000 за месяц в 19 лет.</p>
@@ -1311,6 +1335,35 @@ addEventListener('keydown',e=>{if(e.key==='Escape'){const top=Object.entries(ope
   g.addEventListener('pointermove',e=>{if(y0===null)return;const dy=e.clientY-y0;if(Math.abs(dy)>24){moved=true;apply(dy>0);y0=e.clientY}});
   g.addEventListener('pointerup',()=>{if(y0!==null&&!moved)apply(!d.classList.contains('min'));y0=null});
   g.addEventListener('pointercancel',()=>{y0=null});
+})();
+
+/* ---- locked guide player: no seeking, no chapter jumps ---- */
+(function(){
+  const vp=e=>e.target&&e.target.closest?e.target.closest('.vp'):null;
+  const fmt=t=>{t=Math.max(0,Math.floor(t));return String(Math.floor(t/60)).padStart(2,'0')+':'+String(t%60).padStart(2,'0')};
+  const V=r=>r.querySelector('video');
+  function ui(r){
+    const v=V(r),t=v.currentTime,d=v.duration||0;
+    r.classList.toggle('playing',!v.paused&&!v.ended);
+    const bar=r.querySelector('.vbar i');if(bar&&d)bar.style.width=(t/d*100)+'%';
+    const vt=r.querySelector('.vt');if(vt)vt.textContent=fmt(t)+(d?' / '+fmt(d):'');
+    const L=[...r.querySelectorAll('.vch li')];let cur=-1;
+    L.forEach((li,i)=>{if(+li.dataset.t<=t+.25)cur=i});
+    L.forEach((li,i)=>{li.classList.toggle('on',i===cur);li.classList.toggle('past',i<cur)});
+    const on=L[cur],box=r.querySelector('.vch');
+    if(on&&box&&r._cur!==cur){r._cur=cur;box.scrollTo({top:on.offsetTop-box.offsetTop-box.clientHeight/2+on.clientHeight/2,behavior:'smooth'})}
+  }
+  document.addEventListener('click',e=>{
+    const r=vp(e);if(!r||!e.target.closest('.vpb'))return;
+    const v=V(r);if(v.paused||v.ended){if(v.ended){v._t=0;v.currentTime=0}v.play().catch(()=>{})}else v.pause();
+  });
+  ['play','pause','ended','loadedmetadata','durationchange'].forEach(n=>document.addEventListener(n,e=>{const r=vp(e);if(r)ui(r)},true));
+  document.addEventListener('timeupdate',e=>{const r=vp(e);if(!r)return;const v=e.target;if(!v.seeking&&Math.abs(v.currentTime-(v._t||0))<1.5)v._t=v.currentTime;ui(r)},true);
+  document.addEventListener('seeking',e=>{const r=vp(e);if(!r)return;const v=e.target;
+    if(v.ended||v._t===undefined)return;
+    if(Math.abs(v.currentTime-v._t)>.6)v.currentTime=v._t},true);
+  document.addEventListener('ratechange',e=>{const r=vp(e);if(r)e.target.playbackRate=1},true);
+  document.addEventListener('keydown',e=>{if(vp(e)&&/^(Arrow|Home|End|PageUp|PageDown|Digit|Numpad|KeyJ|KeyL|KeyK| )/.test(e.code)&&e.target.tagName!=='BUTTON')e.preventDefault()},true);
 })();
 </script>
 </body>
