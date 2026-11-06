@@ -4,5 +4,5 @@ meta:
     name: html
 build:
   artifacts:
-    "*": /
-run: {}
+    "index.html": /
+    "guide.mp4": /
